@@ -1,0 +1,88 @@
+@mixin boxShadow {
+    box-shadow: 3px 3px 6px #bbc2cd, -3px -3px 6px #ffffff !important;
+    // background-color: #f2f2f2;
+    border-radius: 3px;
+}
+
+.pokemon {
+    &-list {
+        display: flex;
+        flex-flow: wrap;
+        gap: 5px;
+        max-height: 100vh;
+        overflow: auto;
+        .img,
+        .title {
+            cursor: pointer;
+        }
+    }
+    &-detail {
+        display: flex;
+        justify-content: center;
+        margin-top: 5vh;
+        .pokemon-wrap {
+            max-width: 300px;
+        }
+    }
+    &-wrap {
+        @include boxShadow;
+        display: flex;
+        flex-direction: column;
+        min-width: calc(100% / 10 - 5px);
+        // max-width: 300px;
+        // border: 0.5px solid #000;
+    }
+    .des {
+        padding: 5px 10px;
+    }
+    .title {
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    figure {
+        background-color: #00000008;
+    }
+    img {
+        width: 100%;
+    }
+}
+.loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #0000001a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &-item {
+        border: 10px solid #f3f3f3;
+        border-top: 10px solid #3498db;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

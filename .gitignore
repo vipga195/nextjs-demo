@@ -9,6 +9,8 @@
 /coverage
 
 # next.js
+/next-demo/node_modules
+/next-demo/.next
 /.next/
 /out/
 
