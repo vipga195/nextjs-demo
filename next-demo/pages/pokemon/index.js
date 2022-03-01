@@ -50,12 +50,12 @@ export default function PokemonTable() {
         }
     }
     return (
-        <div className='pokemon pokemon-list' id='scroll_bar'>
+        <div className='pokemon pokemon-list row' id='scroll_bar'>
             {state?.length > 0 ? state.map((item, index) => {
                 let id = item.url.split("/")[6]
                 return (
                     <Link href={"/pokemon/detail/" + id} key={index}>
-                        <div className='pokemon-wrap'>
+                        <div className='pokemon-wrap col-md-3 col-sm-4 col-lg-2 col-xl-1'>
                             <div className='img'>
                                 <Image layout='responsive' width={100} height={100} src={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/' + id + ".png"} />
                             </div>

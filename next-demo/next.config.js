@@ -5,6 +5,7 @@ module.exports = {
   images: {
     domains: ['raw.githubusercontent.com'],
   },
+
   webpack: function (config, options) {
     config.experiments = {
       asyncWebAssembly: true,

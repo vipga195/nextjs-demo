@@ -27,7 +27,6 @@
         @include scrollBar;
         display: flex;
         flex-flow: wrap;
-        gap: 5px;
         max-height: 100vh;
         overflow: auto;
         .img,
@@ -48,18 +47,41 @@
         @include boxShadow;
         display: flex;
         flex-direction: column;
-        width: calc(100% / 10 - 5px);
+        // width: calc(100% / 10 - 5px);
+        border-radius: 5px;
         // max-width: 300px;
         // border: 0.5px solid #000;
     }
     .des {
-        padding: 5px 10px;
+        padding: 5px 10px 20px;
+        position: relative;
+        &:hover {
+            .hover {
+                opacity: 1;
+                background-color: #0000001a;
+                cursor: pointer;
+                pointer-events: all;
+                bottom: 0;
+            }
+        }
     }
     .title {
         text-align: center;
         font-size: 16px;
         font-weight: bold;
         text-transform: uppercase;
+        word-break: break-word;
+    }
+
+    .hover {
+        position: absolute;
+        bottom: -50%;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        text-align: center;
+        transition: all 0.2s ease-in-out;
+        pointer-events: none;
     }
     figure {
         background-color: #00000008;
@@ -108,4 +130,7 @@
 }
 :root {
     @include scrollBar;
+    label {
+        font-style: italic;
+    }
 }

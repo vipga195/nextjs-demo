@@ -3,7 +3,6 @@
   /*this is the little scrolly dealio in the bar*/
   display: flex;
   flex-flow: wrap;
-  gap: 5px;
   max-height: 100vh;
   overflow: auto; }
   .pokemon-list::-webkit-scrollbar {
@@ -32,14 +31,31 @@
   border-radius: 3px;
   display: flex;
   flex-direction: column;
-  width: calc(100% / 10 - 5px); }
+  border-radius: 5px; }
 .pokemon .des {
-  padding: 5px 10px; }
+  padding: 5px 10px 20px;
+  position: relative; }
+  .pokemon .des:hover .hover {
+    opacity: 1;
+    background-color: #0000001a;
+    cursor: pointer;
+    pointer-events: all;
+    bottom: 0; }
 .pokemon .title {
   text-align: center;
   font-size: 16px;
   font-weight: bold;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  word-break: break-word; }
+.pokemon .hover {
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  pointer-events: none; }
 .pokemon figure {
   background-color: #00000008; }
 .pokemon img {
@@ -89,5 +105,7 @@
     background: #b8b8b8;
     /* // outline: 1px solid #dbdbdb; */
     height: 3px; }
+  :root label {
+    font-style: italic; }
 
 /*# sourceMappingURL=index.css.map */
