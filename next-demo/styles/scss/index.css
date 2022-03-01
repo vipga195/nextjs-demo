@@ -1,9 +1,22 @@
 .pokemon-list {
+  /*add a shadow to the scrollbar here*/
+  /*this is the little scrolly dealio in the bar*/
   display: flex;
   flex-flow: wrap;
   gap: 5px;
   max-height: 100vh;
   overflow: auto; }
+  .pokemon-list::-webkit-scrollbar {
+    width: 5px;
+    height: 5px; }
+  .pokemon-list::-webkit-scrollbar-track {
+    background-color: transparent; }
+  .pokemon-list::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    background: #b8b8b8;
+    /* // outline: 1px solid #dbdbdb; */
+    height: 3px; }
   .pokemon-list .img,
   .pokemon-list .title {
     cursor: pointer; }
@@ -12,13 +25,14 @@
   justify-content: center;
   margin-top: 5vh; }
   .pokemon-detail .pokemon-wrap {
-    max-width: 300px; }
+    max-width: 300px;
+    width: 100%; }
 .pokemon-wrap {
   box-shadow: 3px 3px 6px #bbc2cd, -3px -3px 6px #ffffff !important;
   border-radius: 3px;
   display: flex;
   flex-direction: column;
-  min-width: calc(100% / 10 - 5px); }
+  width: calc(100% / 10 - 5px); }
 .pokemon .des {
   padding: 5px 10px; }
 .pokemon .title {
@@ -61,5 +75,19 @@
     transform: rotate(0deg); }
   100% {
     transform: rotate(360deg); } }
+:root {
+  /*add a shadow to the scrollbar here*/
+  /*this is the little scrolly dealio in the bar*/ }
+  :root::-webkit-scrollbar {
+    width: 5px;
+    height: 5px; }
+  :root::-webkit-scrollbar-track {
+    background-color: transparent; }
+  :root::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    background: #b8b8b8;
+    /* // outline: 1px solid #dbdbdb; */
+    height: 3px; }
 
 /*# sourceMappingURL=index.css.map */

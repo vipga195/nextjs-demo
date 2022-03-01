@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
+import Image from '@/components/Image'
+import { fetchService } from '@/utils/services'
 import Head from 'next/head'
-import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
-import { fetchService } from '../../uttils'
 
 const PokemonDetail = () => {
     const router = useRouter()
@@ -27,7 +27,7 @@ const PokemonDetail = () => {
             </div> :
                 <div className='pokemon-wrap'>
                     <figure>
-                        <img src={state?.sprites.back_default} alt="pokemon" />
+                        <Image layout='responsive' width={100} height={100} src={state?.sprites.back_default} alt="pokemon" />
                     </figure>
                     <div className='des'>
                         <div className='title'>

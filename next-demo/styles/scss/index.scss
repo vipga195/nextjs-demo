@@ -3,9 +3,28 @@
     // background-color: #f2f2f2;
     border-radius: 3px;
 }
+@mixin scrollBar {
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+    /*add a shadow to the scrollbar here*/
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+    /*this is the little scrolly dealio in the bar*/
+    &::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 8px;
+        border-radius: 8px;
+        background: #b8b8b8;
+        /* // outline: 1px solid #dbdbdb; */
+        height: 3px;
+    }
+}
 
 .pokemon {
     &-list {
+        @include scrollBar;
         display: flex;
         flex-flow: wrap;
         gap: 5px;
@@ -22,13 +41,14 @@
         margin-top: 5vh;
         .pokemon-wrap {
             max-width: 300px;
+            width: 100%;
         }
     }
     &-wrap {
         @include boxShadow;
         display: flex;
         flex-direction: column;
-        min-width: calc(100% / 10 - 5px);
+        width: calc(100% / 10 - 5px);
         // max-width: 300px;
         // border: 0.5px solid #000;
     }
@@ -85,4 +105,7 @@
     100% {
         transform: rotate(360deg);
     }
+}
+:root {
+    @include scrollBar;
 }

@@ -4,25 +4,30 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link';
 import React from 'react'
-import { fetchService } from '../../uttils';
+import Image from '@/components/Image';
+import { fetchService } from '@/utils/services';
 
 export default function PokemonTable() {
     const [state, setState] = React.useState([]);
     const [filter, setFilter] = React.useState({
         page: 0,
-        loading: true
+        loading: true,
+        end: false
     })
 
     React.useEffect(async () => {
         let data = [].concat(state);
-        let response = await fetchService('https://pokeapi.co/api/v2/pokemon?limit=100&offset=' + filter.page + 100, { method: 'GET' })
+        let end = false
+        let response = await fetchService('https://pokeapi.co/api/v2/pokemon?limit=100&offset=' + (parseInt(filter.page) * 100 + 100), { method: 'GET' })
         data = [...data, ...response.results]
         setState(data)
         if (response) {
-            setFilter((e) => ({ ...e, loading: false }))
+            if (!response.results || response.results.length == 0) {
+                end = true
+            }
+            setFilter((e) => ({ ...e, loading: false, end }))
         }
     }, [filter.page])
 
@@ -36,9 +41,9 @@ export default function PokemonTable() {
         if ((e.scrollTop + e.clientHeight + 50) >= e.scrollHeight) {
             e.style.transition = 'all 2s ease';
             setFilter(els => {
-                if (!els.loading) {
-                    let page = els.page + 1
-                    return { ...els, page }
+                if (!els.loading && !els.end) {
+                    let page = parseInt(els.page) + 1
+                    return { ...els, page, loading: true }
                 }
                 return els
             })
@@ -49,10 +54,10 @@ export default function PokemonTable() {
             {state?.length > 0 ? state.map((item, index) => {
                 let id = item.url.split("/")[6]
                 return (
-                    <Link href={"/pokemon/" + id} key={index}>
+                    <Link href={"/pokemon/detail/" + id} key={index}>
                         <div className='pokemon-wrap'>
                             <div className='img'>
-                                <img src={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/' + id + ".png"} />
+                                <Image layout='responsive' width={100} height={100} src={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/' + id + ".png"} />
                             </div>
                             <div>
                                 <p className='title'> {item.name}</p>

@@ -6,7 +6,10 @@ module.exports = {
     domains: ['raw.githubusercontent.com'],
   },
   webpack: function (config, options) {
-    config.experiments = {};
+    config.experiments = {
+      asyncWebAssembly: true,
+      layers: true,
+    };
     return config;
   },
 }
