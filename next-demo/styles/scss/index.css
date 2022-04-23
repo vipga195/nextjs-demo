@@ -1,0 +1,111 @@
+.pokemon-list {
+  /*add a shadow to the scrollbar here*/
+  /*this is the little scrolly dealio in the bar*/
+  display: flex;
+  flex-flow: wrap;
+  max-height: 100vh;
+  overflow: auto; }
+  .pokemon-list::-webkit-scrollbar {
+    width: 5px;
+    height: 5px; }
+  .pokemon-list::-webkit-scrollbar-track {
+    background-color: transparent; }
+  .pokemon-list::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    background: #b8b8b8;
+    /* // outline: 1px solid #dbdbdb; */
+    height: 3px; }
+  .pokemon-list .img,
+  .pokemon-list .title {
+    cursor: pointer; }
+.pokemon-detail {
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh; }
+  .pokemon-detail .pokemon-wrap {
+    max-width: 300px;
+    width: 100%; }
+.pokemon-wrap {
+  box-shadow: 3px 3px 6px #bbc2cd, -3px -3px 6px #ffffff !important;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px; }
+.pokemon .des {
+  padding: 5px 10px 20px;
+  position: relative; }
+  .pokemon .des:hover .hover {
+    opacity: 1;
+    background-color: #0000001a;
+    cursor: pointer;
+    pointer-events: all;
+    bottom: 0; }
+.pokemon .title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  word-break: break-word; }
+.pokemon .hover {
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  pointer-events: none; }
+.pokemon figure {
+  background-color: #00000008; }
+.pokemon img {
+  width: 100%; }
+
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #0000001a;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .loading-item {
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
+    animation: spin 2s linear infinite; }
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg); } }
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+:root {
+  /*add a shadow to the scrollbar here*/
+  /*this is the little scrolly dealio in the bar*/ }
+  :root::-webkit-scrollbar {
+    width: 5px;
+    height: 5px; }
+  :root::-webkit-scrollbar-track {
+    background-color: transparent; }
+  :root::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    background: #b8b8b8;
+    /* // outline: 1px solid #dbdbdb; */
+    height: 3px; }
+  :root label {
+    font-style: italic; }
+
+/*# sourceMappingURL=index.css.map */
