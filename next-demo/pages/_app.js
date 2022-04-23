@@ -4,6 +4,7 @@ import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import { Provider } from 'react-redux'
 import configureStore from '@/redux/index';
+import { appWithTranslation } from 'next-i18next';
 
 const MyApp = ({ Component, pageProps }) => {
   const store = configureStore();
@@ -24,4 +25,4 @@ const MyApp = ({ Component, pageProps }) => {
   )
 }
 
-export default MyApp
+export default appWithTranslation(MyApp)

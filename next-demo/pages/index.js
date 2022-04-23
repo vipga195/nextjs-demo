@@ -1,10 +1,17 @@
 /* eslint-disable @next/next/link-passhref */
+import { useTranslation, withTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link';
 import styles from '../styles/Home.module.css'
+function Home() {
+  const { i18n } = useTranslation()
 
-export default function Home() {
+  const onClick = () => {
+    console.log({ i18n })
+    i18n.changeLanguage(i18n.language == "en" ? "vi" : "en")
+  }
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -22,7 +29,7 @@ export default function Home() {
             <h2>Documentation </h2>
           </Link>
           <p>Find in-depth information about Next.js features and API.</p>
-
+          <button onClick={onClick}>Change translate</button>
           {/* <Link href="https://nextjs.org/learn" >
             <h2>Learn &rarr;</h2>
             <p>Learn about Next.js in an interactive course with quizzes!</p>
@@ -61,3 +68,14 @@ export default function Home() {
     </div>
   )
 }
+export async function getStaticProps({ locale }) {
+  console.log({ locale })
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+      // Will be passed to the page component as props
+    },
+  };
+}
+
+export default withTranslation("common")(Home)
